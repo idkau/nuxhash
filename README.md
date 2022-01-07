@@ -54,8 +54,14 @@ Optionally, install this package to enable the GUI interface:
 
 * python3-wxgtk4.0
 
-Then, install nuxhash.
+Then, install nuxhash, either for the user only in his $home or globally (running as root with sudo)
 
+user only:
+```
+$ pip3 install git+https://github.com/YoRyan/nuxhash
+```
+
+globally as root:
 ```
 $ sudo pip3 install git+https://github.com/YoRyan/nuxhash
 ```
