@@ -58,12 +58,12 @@ Then, install nuxhash, either for the user only in his $home or globally (runnin
 
 user only:
 ```
-$ pip3 install git+https://github.com/YoRyan/nuxhash
+$ pip3 install git+https://github.com/thetuxinator/nuxhash
 ```
 
 globally as root:
 ```
-$ sudo pip3 install git+https://github.com/YoRyan/nuxhash
+$ sudo pip3 install git+https://github.com/thetuxinator/nuxhash
 ```
 
 To start the daemon, run `nuxhashd`. To start the graphical interface, run `nuxhash-gui`.
