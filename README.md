@@ -75,6 +75,11 @@ $ pip install wxPython
 
 Then, install nuxhash, either for the user only in his $home or globally (running as root with sudo)
 
+#### dont forget to change in to the Python venv if you are using it:
+$ source nuxhash-venv\bin\activate
+
+install it:
+
 user only:
 ```
 $ pip3 install pypubsub
@@ -86,6 +91,10 @@ globally as root:
 $ sudo pip3 install pypubsub
 $ sudo pip3 install git+https://github.com/thetuxinator/nuxhash
 ```
+
+
+#### dont forget to change in to the Python venv if you are using it:
+$ source nuxhash-venv\bin\activate
 
 To start the daemon, run `nuxhashd`. To start the graphical interface, run `nuxhash-gui`.
 
