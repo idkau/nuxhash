@@ -50,9 +50,19 @@ Install the following dependencies (this list is for Ubuntu 18.04 LTS):
 * curl
 * ocl-icd-libopencl1 [(to run CUDA apps)](https://askubuntu.com/questions/1032430/opencl-with-nvidia-390-on-ubunut-18-04)
 
+
+This step is optional, however creating a Virtual Python Environment helps to make life easier and you don't break your Systems Python instance and you can have multiple Versions at the same time.
+
+Create a Python Virtual Environment using my provided script createvenv.sh like this
+
+createvenv.sh "venvname" for example:
+createvenv.sh nuxhashvenv
+activate it following the scripts instructions (source...)
+
 Optionally, install this package to enable the GUI interface:
 
-* python3-wxgtk4.0
+* python3-wxgtk4.0 (distro package)
+* pip install wxPython (in your above created venv) -> for this you need to have gtk+ devel packages installed, on my Mageia Linux 9 this is installed by using urpmi lib64gtk+3.0-devel lib64gtk+3_0
 
 Then, install nuxhash, either for the user only in his $home or globally (running as root with sudo)
 
