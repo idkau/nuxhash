@@ -49,9 +49,9 @@ Install the following dependencies (this list is for Ubuntu 18.04 LTS):
 * python3-pip
 * curl
 * ocl-icd-libopencl1 [(to run CUDA apps)](https://askubuntu.com/questions/1032430/opencl-with-nvidia-390-on-ubunut-18-04)
+* python-dev (lib64python3-devel on my Mageia 9)
 
-
-This step is optional, however creating a Virtual Python Environment helps to make life easier and you don't break your Systems Python instance and you can have multiple Versions at the same time.
+This step is optional, however creating a Virtual Python Environment helps to make life easier and you don't break your Systems Python instance and you can have multiple Versions at the same time and every Venv can have it's own python packages and versions.
 
 Create a Python Virtual Environment using my provided script createvenv.sh like this
 
