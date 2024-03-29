@@ -68,13 +68,13 @@ Then, install nuxhash, either for the user only in his $home or globally (runnin
 
 user only:
 ```
-$ pip3 install pubsub
+$ pip3 install pypubsub
 $ pip3 install git+https://github.com/thetuxinator/nuxhash
 ```
 
 globally as root:
 ```
-$ sudo pip3 install pubsub
+$ sudo pip3 install pypubsub
 $ sudo pip3 install git+https://github.com/thetuxinator/nuxhash
 ```
 
