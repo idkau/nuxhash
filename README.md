@@ -59,10 +59,13 @@ createvenv.sh "venvname" for example:
 createvenv.sh nuxhashvenv
 activate it following the scripts instructions (source...)
 
-Optionally, install this package to enable the GUI interface:
+To enable the "nuxhash-gui" install this package:
 
-* python3-wxgtk4.0 (distro package)
-* pip install wxPython (in your above created venv) -> for this you need to have gtk+ devel packages installed, on my Mageia Linux 9 this is installed by using urpmi lib64gtk+3.0-devel lib64gtk+3_0
+python3-wxgtk4.0 (distro package)
+for the next to work, you need to have gtk+ devel packages installed, on my Mageia Linux 9 this is installed by using:
+$ urpmi lib64gtk+3.0-devel lib64gtk+3_0
+install wxPython in to your Venv
+$ pip install wxPython 
 
 Then, install nuxhash, either for the user only in his $home or globally (running as root with sudo)
 
