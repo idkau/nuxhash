@@ -2,7 +2,10 @@ from copy import deepcopy
 from functools import wraps
 
 import wx
-from wx.lib.pubsub import pub
+#from wx.lib.pubsub import pub
+#try to move to pypubsub
+from pubsub import pub
+
 from wx.lib.agw.hyperlink import HyperLinkCtrl
 
 from nuxhash import settings
@@ -192,7 +195,8 @@ class SettingsScreen(wx.Panel):
         self._ApiKey.SetValue(self._Settings['nicehash']['api_key'])
         self._ApiSecret.SetValue(self._Settings['nicehash']['api_secret'])
         self._Interval.SetValue(self._Settings['switching']['interval'])
-        self._Threshold.SetValue(self._Settings['switching']['threshold']*100)
+        # try a type fix self._Threshold.SetValue(self._Settings['switching']['threshold']*100)
+        self._Threshold.SetValue(round(self._Settings['switching']['threshold']*100))   
         self._Units.SetValue(self._Settings['gui']['units'])
         self._Revert.Disable()
         self._Save.Disable()
