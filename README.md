@@ -6,6 +6,7 @@ It is currently in beta.
 
 ## This is a recently updated version which should work with recent Wxpython and uses pypubsub instead of pubsub to fix some issues! Also we are now using Python Venv to make life easier.
 ## Tested on Mageia Linux 9, any tests/feedback is much appreciated!
+## known issues: Balance (unpaid) does no more work, API seems to have changed.
 
 Donations: 3GWuZZehCcL2vmUZSxegqD7F8fKxNjqtPP
 
