@@ -4,7 +4,10 @@ import threading
 import wx
 import wx.dataview
 from wx.lib.newevent import NewCommandEvent
-from wx.lib.pubsub import pub
+#from wx.lib.pubsub import pub
+#try to move to pypubsub
+from pubsub import pub
+
 from wx.lib.scrolledpanel import ScrolledPanel
 
 from nuxhash import utils
@@ -53,7 +56,7 @@ class BenchmarksScreen(wx.Panel):
         innerWindow.SetupScrolling()
         sizer.Add(innerWindow, wx.SizerFlags().Border(wx.LEFT|wx.RIGHT|wx.TOP,
                                                       main.PADDING_PX)
-                                              .Proportion(1.0)
+                                              .Proportion(1)
                                               .Expand())
         innerSizer = wx.BoxSizer(orient=wx.VERTICAL)
         innerWindow.SetSizer(innerSizer)

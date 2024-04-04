@@ -4,7 +4,11 @@ nuxhash is a [NiceHash](https://nicehash.com) cryptocurrency mining client for
 Linux. nuxhash consists of a headless daemon and an optional wxPython-based GUI.
 It is currently in beta.
 
-Donations: bc1q2ne5zqa6k5egd82p4rv0rn44tpc35gv3afu52n
+## This is a recently updated version which should work with recent Wxpython and uses pypubsub instead of pubsub to fix some issues! Also we are now using Python Venv to make life easier.
+## Tested on Mageia Linux 9, any tests/feedback is much appreciated!
+## known issues: Balance (unpaid) does no more work, API seems to have changed.
+
+Donations: 3GWuZZehCcL2vmUZSxegqD7F8fKxNjqtPP
 
 ## Features
 
@@ -49,16 +53,49 @@ Install the following dependencies (this list is for Ubuntu 18.04 LTS):
 * python3-pip
 * curl
 * ocl-icd-libopencl1 [(to run CUDA apps)](https://askubuntu.com/questions/1032430/opencl-with-nvidia-390-on-ubunut-18-04)
+* python-dev (lib64python3-devel on my Mageia 9)
 
-Optionally, install this package to enable the GUI interface:
+This step is optional, however creating a Virtual Python Environment helps to make life easier and you don't break your Systems Python instance and you can have multiple Versions at the same time and every Venv can have it's own python packages and versions.
 
-* python3-wxgtk4.0
+Create a Python Virtual Environment using my provided script createvenv.sh like this
 
-Then, install nuxhash.
+createvenv.sh "venvname" for example:
+createvenv.sh nuxhashvenv
+activate it following the scripts instructions (source...)
 
+To enable the "nuxhash-gui" install this package:
+
+python3-wxgtk4.0 (distro package)
+for the next to work, you need to have gtk+ devel packages installed, on my Mageia Linux 9 this is installed by using:
+
+$ urpmi lib64gtk+3.0-devel lib64gtk+3_0
+
+install wxPython in to your Venv
+
+$ pip install wxPython 
+
+Then, install nuxhash, either for the user only in his $home or globally (running as root with sudo)
+
+#### dont forget to change in to the Python venv if you are using it:
+$ source nuxhash-venv\bin\activate
+
+install it:
+
+user only:
 ```
-$ sudo pip3 install git+https://github.com/YoRyan/nuxhash
+$ pip3 install pypubsub
+$ pip3 install git+https://github.com/thetuxinator/nuxhash
 ```
+
+globally as root:
+```
+$ sudo pip3 install pypubsub
+$ sudo pip3 install git+https://github.com/thetuxinator/nuxhash
+```
+
+
+#### dont forget to change in to the Python venv if you are using it:
+$ source nuxhash-venv\bin\activate
 
 To start the daemon, run `nuxhashd`. To start the graphical interface, run `nuxhash-gui`.
 

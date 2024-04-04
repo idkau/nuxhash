@@ -7,7 +7,10 @@ from pathlib import Path
 from subprocess import Popen
 
 import wx
-from wx.lib.pubsub import pub
+#from wx.lib.pubsub import pub
+#try to move to pypubsub
+from pubsub import pub
+
 from wx.lib.newevent import NewCommandEvent
 
 import nuxhash.settings
@@ -93,7 +96,8 @@ class MainWindow(wx.Frame):
                 self._DlThread.join()
                 self._DlThread = None
             else:
-                self._DlProgress.Update(progress*100, newmsg=message)
+               self._DlProgress.Update(int(progress*100), newmsg=message)
+ 
 
     def OnClose(self, event):
         logging.info('Closing up!')

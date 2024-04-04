@@ -9,7 +9,10 @@ from random import random
 
 import wx
 import wx.dataview
-from wx.lib.pubsub import pub
+#from wx.lib.pubsub import pub
+#try to move to pypubsub
+from pubsub import pub
+
 
 from nuxhash import nicehash, utils
 from nuxhash.bitcoin import check_bc
@@ -54,13 +57,16 @@ class MiningScreen(wx.Panel):
         # Update balance periodically.
         self._Timer = wx.Timer(self)
         self.Bind(wx.EVT_TIMER, self._OnBalanceTimer, self._Timer)
-        self._Timer.Start(milliseconds=BALANCE_UPDATE_MIN*60*1e3)
+        # self._Timer.Start(milliseconds=BALANCE_UPDATE_MIN*58*1e3)
+        # fixing above float issue as int was expected:
+        self._Timer.Start(milliseconds=int(BALANCE_UPDATE_MIN*60*1000))
+
 
         # Add mining panel.
         self._Panel = MiningPanel(self, style=wx.dataview.DV_HORIZ_RULES)
         sizer.Add(self._Panel, wx.SizerFlags().Border(wx.LEFT|wx.RIGHT|wx.TOP,
                                                       main.PADDING_PX)
-                                              .Proportion(1.0)
+                                              .Proportion(1)
                                               .Expand())
 
         bottomSizer = wx.BoxSizer(orient=wx.HORIZONTAL)
@@ -70,7 +76,7 @@ class MiningScreen(wx.Panel):
         # Add balance displays.
         balances = wx.FlexGridSizer(2, 2, main.PADDING_PX)
         balances.AddGrowableCol(1)
-        bottomSizer.Add(balances, wx.SizerFlags().Proportion(1.0).Expand())
+        bottomSizer.Add(balances, wx.SizerFlags().Proportion(1).Expand())
 
         balances.Add(wx.StaticText(self, label='Daily revenue'))
         self._Revenue = wx.StaticText(
